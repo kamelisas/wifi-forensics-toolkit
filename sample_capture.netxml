@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE detection-run SYSTEM "http://kismetwireless.net/kismet-3.1.0.dtd">
+<!--
+  Synthetic sample capture for demo/testing purposes only.
+  This is NOT real captured traffic — all SSIDs, BSSIDs and client MACs
+  below are fabricated to exercise the parser and the rogue-AP heuristic.
+-->
+<detection-run kismet-version="2024-01-R1" start-time="Mon Sep 21 10:02:11 2026">
+
+  <wireless-network number="1" type="infrastructure" first-time="Mon Sep 21 10:02:11 2026" last-time="Mon Sep 21 10:14:40 2026">
+    <SSID first-time="Mon Sep 21 10:02:11 2026" last-time="Mon Sep 21 10:14:40 2026">
+      <type>Beacon</type>
+      <max-rate>270.000000</max-rate>
+      <packets>842</packets>
+      <encryption>WPA2</encryption>
+      <essid cloaked="false">CampusNet-Staff</essid>
+    </SSID>
+    <BSSID>AA:11:22:33:44:01</BSSID>
+    <manuf>Cisco Systems</manuf>
+    <channel>36</channel>
+    <freqmhz>5180</freqmhz>
+    <snr-info>
+      <last_signal_dbm>-52</last_signal_dbm>
+      <max_signal_dbm>-46</max_signal_dbm>
+    </snr-info>
+    <client-list>
+      <wireless-client number="1" type="established" first-time="Mon Sep 21 10:03:02 2026" last-time="Mon Sep 21 10:14:30 2026">
+        <client-mac>C4:12:AB:00:11:22</client-mac>
+        <client-manuf>Apple, Inc.</client-manuf>
+      </wireless-client>
+      <wireless-client number="2" type="established" first-time="Mon Sep 21 10:05:44 2026" last-time="Mon Sep 21 10:11:09 2026">
+        <client-mac>D8:BB:2C:10:20:30</client-mac>
+        <client-manuf>Samsung Electronics</client-manuf>
+      </wireless-client>
+    </client-list>
+  </wireless-network>
+
+  <wireless-network number="2" type="infrastructure" first-time="Mon Sep 21 10:02:40 2026" last-time="Mon Sep 21 10:15:02 2026">
+    <SSID first-time="Mon Sep 21 10:02:40 2026" last-time="Mon Sep 21 10:15:02 2026">
+      <type>Beacon</type>
+      <max-rate>144.000000</max-rate>
+      <packets>1190</packets>
+      <encryption>WPA2</encryption>
+      <essid cloaked="false">CampusNet-Student</essid>
+    </SSID>
+    <BSSID>AA:11:22:33:44:02</BSSID>
+    <manuf>Cisco Systems</manuf>
+    <channel>44</channel>
+    <freqmhz>5220</freqmhz>
+    <snr-info>
+      <last_signal_dbm>-58</last_signal_dbm>
+      <max_signal_dbm>-49</max_signal_dbm>
+    </snr-info>
+    <client-list>
+      <wireless-client number="1" type="established" first-time="Mon Sep 21 10:02:55 2026" last-time="Mon Sep 21 10:15:00 2026">
+        <client-mac>3C:5A:B4:44:55:66</client-mac>
+        <client-manuf>Intel Corporate</client-manuf>
+      </wireless-client>
+    </client-list>
+  </wireless-network>
+
+  <!-- Legitimate staff AP, second radio of the same real deployment -->
+  <wireless-network number="3" type="infrastructure" first-time="Mon Sep 21 10:03:10 2026" last-time="Mon Sep 21 10:14:55 2026">
+    <SSID first-time="Mon Sep 21 10:03:10 2026" last-time="Mon Sep 21 10:14:55 2026">
+      <type>Beacon</type>
+      <max-rate>270.000000</max-rate>
+      <packets>760</packets>
+      <encryption>WPA2</encryption>
+      <essid cloaked="false">CampusNet-Staff</essid>
+    </SSID>
+    <BSSID>AA:11:22:33:44:03</BSSID>
+    <manuf>Cisco Systems</manuf>
+    <channel>149</channel>
+    <freqmhz>5745</freqmhz>
+    <snr-info>
+      <last_signal_dbm>-61</last_signal_dbm>
+      <max_signal_dbm>-55</max_signal_dbm>
+    </snr-info>
+    <client-list/>
+  </wireless-network>
+
+  <!-- Suspicious network: broadcasts the SAME SSID as network #1, but from an
+       unrelated vendor OUI, with a much stronger signal, and open/no
+       encryption — classic evil-twin / rogue AP pattern -->
+  <wireless-network number="4" type="infrastructure" first-time="Mon Sep 21 10:09:00 2026" last-time="Mon Sep 21 10:13:20 2026">
+    <SSID first-time="Mon Sep 21 10:09:00 2026" last-time="Mon Sep 21 10:13:20 2026">
+      <type>Beacon</type>
+      <max-rate>54.000000</max-rate>
+      <packets>340</packets>
+      <encryption>None</encryption>
+      <essid cloaked="false">CampusNet-Staff</essid>
+    </SSID>
+    <BSSID>DE:AD:BE:EF:00:99</BSSID>
+    <manuf>Unknown</manuf>
+    <channel>6</channel>
+    <freqmhz>2437</freqmhz>
+    <snr-info>
+      <last_signal_dbm>-22</last_signal_dbm>
+      <max_signal_dbm>-18</max_signal_dbm>
+    </snr-info>
+    <client-list>
+      <wireless-client number="1" type="established" first-time="Mon Sep 21 10:09:40 2026" last-time="Mon Sep 21 10:10:12 2026">
+        <client-mac>C4:12:AB:00:11:22</client-mac>
+        <client-manuf>Apple, Inc.</client-manuf>
+      </wireless-client>
+    </client-list>
+  </wireless-network>
+
+  <wireless-network number="5" type="infrastructure" first-time="Mon Sep 21 10:04:30 2026" last-time="Mon Sep 21 10:12:00 2026">
+    <SSID first-time="Mon Sep 21 10:04:30 2026" last-time="Mon Sep 21 10:12:00 2026">
+      <type>Beacon</type>
+      <max-rate>72.000000</max-rate>
+      <packets>210</packets>
+      <encryption>WPA3</encryption>
+      <essid cloaked="false">Eduroam</essid>
+    </SSID>
+    <BSSID>AA:11:22:33:44:05</BSSID>
+    <manuf>Aruba Networks</manuf>
+    <channel>1</channel>
+    <freqmhz>2412</freqmhz>
+    <snr-info>
+      <last_signal_dbm>-67</last_signal_dbm>
+      <max_signal_dbm>-60</max_signal_dbm>
+    </snr-info>
+    <client-list/>
+  </wireless-network>
+
+</detection-run>
